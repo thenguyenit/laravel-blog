@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Cửa hàng vật liệu xây dựng và trang trí nội thất - Lê Gia</title>
+<title>{{trans('app.slogan')}} - {{trans('app.name')}}</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="{{asset('components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">

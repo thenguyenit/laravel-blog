@@ -15,13 +15,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li class="@if($_SERVER['REQUEST_URI'] == '/') active @endif">
                     <a href="/">Home</a>
                 </li>
-                <li>
+                <li class="@if($_SERVER['REQUEST_URI'] == '/about') active @endif">
                     <a href="/about">About</a>
                 </li>
-                <li>
+                <li class="@if($_SERVER['REQUEST_URI'] == '/contact') active @endif">
                     <a href="/contact">Contact</a>
                 </li>
             </ul>

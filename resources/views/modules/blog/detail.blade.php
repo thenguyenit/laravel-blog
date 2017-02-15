@@ -27,7 +27,6 @@
                 <br>
                 <div id="blog-content" class="markdown">{!! $blogDetail['content'] !!}</div>
 
-
             </div>
         </div>
     </div>
@@ -40,7 +39,6 @@
     $(document).ready(function(){
         var content = $('#blog-content').html();
         var converter = new showdown.Converter();
-//        $('#blog-content').html(markdown.toHTML( content ) );
         $('#blog-content').html(converter.makeHtml( content ) );
     });
 </script>

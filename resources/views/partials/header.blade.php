@@ -1,2 +1,2 @@
-<div class="brand">{{config('app.name')}}</div>
-<div class="address-bar">Coding the 3w</div>
+<div class="brand">{{trans('app.name')}}</div>
+<div class="address-bar">{{trans('app.slogan')}}</div>
