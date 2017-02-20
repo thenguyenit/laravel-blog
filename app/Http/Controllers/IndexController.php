@@ -2,20 +2,57 @@
 
 namespace App\Http\Controllers;
 
-use App\Entity\Blog;
+use App\Entity\Article;
+use App\Entity\Note;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    /**
+     * Paginate articles
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return view('index');
+        $articleModel = new Article();
+        $articles = $articleModel->paginate();
+        return view('index', compact('articles'));
     }
 
-    public function blogDetail($year, $slug)
+    /**
+     * Paginate notes
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function notes()
     {
-        $blogDetail = Blog::detail($year, $slug);
-        return view('modules.blog.detail', compact('blogDetail'));
-        
+        $articles = Note::paginate();
+        return view('index', compact('articles'));
+    }
+
+    /**Get article detail
+     *
+     * @param $year
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function articleDetail($year, $slug)
+    {
+        $article = Article::detail($year, $slug);
+        return view('modules.article.detail', compact('article'));
+    }
+
+    /**
+     * Get note detail
+     *
+     * @param $year
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function noteDetail($year, $slug)
+    {
+        $article = Note::detail($year, $slug);
+        return view('modules.article.detail', compact('article'));
     }
 }

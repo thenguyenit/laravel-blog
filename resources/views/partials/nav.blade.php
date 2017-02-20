@@ -21,9 +21,6 @@
                 <li class="@if($_SERVER['REQUEST_URI'] == '/about') active @endif">
                     <a href="/about">About</a>
                 </li>
-                <li class="@if($_SERVER['REQUEST_URI'] == '/contact') active @endif">
-                    <a href="/contact">Contact</a>
-                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

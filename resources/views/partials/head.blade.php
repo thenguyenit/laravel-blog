@@ -1,16 +1,29 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="_token" content="{!! csrf_token() !!}"/>
+<link href="{{asset('img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon"/>
+<!--  <meta name="google-site-verification" content="EvZxJWF9DE1bvxaCZ3Gzol9NWrGXaJOvxGcKOFIugpc" />-->
+<!--  <meta name="msvalidate.01" content="E3C6C0BD5CAD9DC458DCE270EB99AFC6" />-->
 
-<title>{{trans('app.slogan')}} - {{trans('app.name')}}</title>
+@section('meta')
+    <title>{{trans('app.slogan')}} - {{trans('app.name')}}</title>
+    <meta name="description" content="{{trans('app.meta-description')}}">
+    <meta name="keywords" content="{{trans('app.meta-keywords')}}">
+
+    <meta property="og:title" content="{{trans('app.name')}}"/>
+    <meta property="og:description" content="{{trans('app.meta-description')}}"/>
+@show
+
+<meta name="author" content="{{trans('app.meta-author')}}">
+<meta property="og:site_name" content="{{trans('app.name')}}"/>
 
 <!-- Bootstrap Core CSS -->
 <link href="{{asset('components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="{{asset('css/business-casual.css')}}" rel="stylesheet">
+<link href="{{asset('css/my-style.css')}}" rel="stylesheet">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">

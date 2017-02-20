@@ -200,6 +200,10 @@ footer p {
     color: #333333;
 }
 
+.article-container .article {
+    margin: 10px 0;
+}
+
 .scrollToTop{
     width:50px;
     height:95px;

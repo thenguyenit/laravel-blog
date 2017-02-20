@@ -11,7 +11,7 @@
 
 <body>
 
-    @include("partials/header")
+    {{--@include("partials/header")--}}
 
     @include("partials/nav")
 
@@ -23,6 +23,7 @@
 <!-- /.container -->
 
     @include("partials/footer")
+    
     @section('footer')
     @show
 
