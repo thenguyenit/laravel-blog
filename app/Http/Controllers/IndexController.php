@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Entity\Article;
 use App\Entity\Note;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    protected $articleRepo;
+    protected $noteRepo;
+
+    public function __construct()
+    {
+        $this->articleRepo = new Article();
+        $this->noteRepo = new Note();
+    }
     /**
      * Paginate articles
      *
@@ -15,8 +22,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $articleModel = new Article();
-        $articles = $articleModel->paginate();
+        $articles = $this->articleRepo->paginate();
         return view('index', compact('articles'));
     }
 
@@ -27,8 +33,8 @@ class IndexController extends Controller
      */
     public function notes()
     {
-        $articles = Note::paginate();
-        return view('index', compact('articles'));
+        $articles = $this->noteRepo->paginate();
+        return view('modules.note.index', compact('articles'));
     }
 
     /**Get article detail
@@ -39,8 +45,12 @@ class IndexController extends Controller
      */
     public function articleDetail($year, $slug)
     {
-        $article = Article::detail($year, $slug);
-        return view('modules.article.detail', compact('article'));
+        $article = $this->articleRepo->detail($year, $slug);
+        if ($article) {
+            return view('modules.article.detail', compact('article'));
+        }
+
+        abort(404);
     }
 
     /**
@@ -52,7 +62,11 @@ class IndexController extends Controller
      */
     public function noteDetail($year, $slug)
     {
-        $article = Note::detail($year, $slug);
-        return view('modules.article.detail', compact('article'));
+        $article = $this->noteRepo->detail($year, $slug);
+        if ($article) {
+            return view('modules.note.detail', compact('article'));
+        }
+
+        abort(404);
     }
 }

@@ -2,7 +2,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="_token" content="{!! csrf_token() !!}"/>
 <link href="{{asset('img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon"/>
 <!--  <meta name="google-site-verification" content="EvZxJWF9DE1bvxaCZ3Gzol9NWrGXaJOvxGcKOFIugpc" />-->
 <!--  <meta name="msvalidate.01" content="E3C6C0BD5CAD9DC458DCE270EB99AFC6" />-->

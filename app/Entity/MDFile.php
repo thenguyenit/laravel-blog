@@ -13,25 +13,30 @@ class MDFile
      */
     public function paginate()
     {
-        $result = [];
         $folderPath = storage_path($this->mdPath);
-        foreach (\File::directories($folderPath) as $directory) {
 
-            if (is_dir($directory)) {
-                foreach (\File::files($directory) as $file) {
-                    $pattern = '/(.*)\/(\d+)\/(.*).md/';
-                    preg_match($pattern, $file, $output);
-                    if ($output) {
-                        $result[$output[2]][] = [
-                            'title' => self::getTitle($output[3]),
-                            'slug' => $output[3],
-                            'avatar' => self::getAvatar($output[2], $output[3]),
-                            'created_at' =>  Carbon::createFromTimestamp(\File::lastModified($file))
-                        ];
+        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+            $result = [];
+            foreach (\File::directories($folderPath) as $directory) {
+
+                if (is_dir($directory)) {
+                    foreach (\File::files($directory) as $file) {
+                        $pattern = '/(.*)\/(\d+)\/(.*).md/';
+                        preg_match($pattern, $file, $output);
+                        if ($output) {
+                            $result[$output[2]][] = [
+                                'title' => self::getTitle($output[3]),
+                                'slug' => $output[3],
+                                'avatar' => self::getAvatar($output[2], $output[3]),
+                                'created_at' =>  Carbon::createFromTimestamp(\File::lastModified($file))
+                            ];
+                        }
                     }
                 }
             }
-        }
+
+            return $result;
+        });
 
         return $result;
     }
@@ -46,16 +51,21 @@ class MDFile
     public function detail($year, $slug)
     {
         $filePath = storage_path($this->mdPath . "/{$year}/{$slug}.md");
-        if (is_file($filePath)) {
-            $content = \File::get($filePath);
 
-            return [
-                'title'      => self::getTitle($slug),
-                'avatar'     => self::getAvatar($year, $slug),
-                'content'    => $content,
-                'created_at' =>  Carbon::createFromTimestamp(\File::lastModified($filePath))
-            ];
-        }
+        $result = \Cache::remember($filePath, 60, function() use ($filePath, $slug, $year) {
+            if (is_file($filePath)) {
+                $content = \File::get($filePath);
+
+                return [
+                    'title'      => self::getTitle($slug),
+                    'avatar'     => self::getAvatar($year, $slug),
+                    'content'    => $content,
+                    'created_at' => Carbon::createFromTimestamp(\File::lastModified($filePath))
+                ];
+            }
+        });
+
+        return $result;
     }
 
     /**

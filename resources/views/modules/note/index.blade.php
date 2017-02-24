@@ -22,7 +22,7 @@
                 @foreach($articlesGroupByYear as $article)
                     <div class="col-lg-12 article">
                         <h4>
-                            <a href="{{route('article-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
+                            <a href="{{route('note-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
                             <small>{{$article['created_at']->format('M d, Y')}}</small>
                         </h4>
                     </div>

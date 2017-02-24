@@ -17,7 +17,7 @@
                 <hr>
             </div>
             <div class="col-md-8">
-                <p>Who am i?</p>
+
             </div>
             <div class="col-md-4">
                 <p>Phone:

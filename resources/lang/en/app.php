@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'Nguyen Nguyen',
+    'name' => 'I\'m Weber',
     'slogan' => 'Coding the 3w',
     'meta-description' => 'Thoughts and writings by Nguyen Nguyen.',
     'meta-keywords' => 'nguyen nguyen blog, nguyen nguyen, web developer',
