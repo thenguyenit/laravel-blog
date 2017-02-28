@@ -69,4 +69,9 @@ class IndexController extends Controller
 
         abort(404);
     }
+
+    public function about()
+    {
+        return $this->articleDetail(2016, 'about');
+    }
 }
