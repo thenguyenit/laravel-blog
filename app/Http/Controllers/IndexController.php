@@ -70,8 +70,13 @@ class IndexController extends Controller
         abort(404);
     }
 
+    /**
+     * Go to about me page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function about()
     {
-        return $this->articleDetail(2016, 'about');
+        return $this->articleDetail(2016, 'about-me');
     }
 }

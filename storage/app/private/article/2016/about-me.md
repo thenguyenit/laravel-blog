@@ -1,3 +1,7 @@
+My name is Nguyen, I'm a software engineer mainly interested in web development. Some of my interests are LAMP stack and development process. In my blog i think i can share my thought, notes and practice writing skill.
+ 
+ My passion builds a lot of beautiful products, from idea to shipping the final. I care about the full stack, consists system architecture, back-end and front-end work.
+  
 ####SKILLS
 - 5 years of experience in web development (LAMP stack).
 - 1,5 years of experience in lead team (2 members).

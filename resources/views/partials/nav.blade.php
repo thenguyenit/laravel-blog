@@ -19,7 +19,7 @@
                     <a href="/">Home</a>
                 </li>
                 <li class="@if($_SERVER['REQUEST_URI'] == '/about') active @endif">
-                    <a href="/about">About</a>
+                    <a href="{{route('about-me')}}">About</a>
                 </li>
             </ul>
         </div>
