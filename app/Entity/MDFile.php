@@ -15,7 +15,7 @@ class MDFile
     {
         $folderPath = storage_path($this->mdPath);
 
-        //$result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
             $result = [];
             foreach (\File::directories($folderPath) as $directory) {
 
@@ -36,7 +36,7 @@ class MDFile
             }
 
             return $result;
-        //});
+        });
 
         return $result;
     }
