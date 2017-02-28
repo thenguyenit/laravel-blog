@@ -15,13 +15,13 @@ class MDFile
     {
         $folderPath = storage_path($this->mdPath);
 
-        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+        //$result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
             $result = [];
             foreach (\File::directories($folderPath) as $directory) {
 
                 if (is_dir($directory)) {
                     foreach (\File::files($directory) as $file) {
-                        $pattern = '/(.*)\/(\d+)\/(.*).md/';
+                        $pattern = '/(.*)\\' . DIRECTORY_SEPARATOR . '(\d+)\/(.*).md/';
                         preg_match($pattern, $file, $output);
                         if ($output) {
                             $result[$output[2]][] = [
@@ -36,7 +36,7 @@ class MDFile
             }
 
             return $result;
-        });
+        //});
 
         return $result;
     }

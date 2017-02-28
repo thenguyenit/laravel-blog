@@ -12,7 +12,8 @@
             <div class="col-lg-12">
                 <hr>
                     <h2 class="intro-text text-center">{{$article['title']}}
-                        <small class="text-center">{{$article['created_at']->format('M d, Y')}}</small></h2>
+                        {{--<small class="text-center">{{$article['created_at']->format('M d, Y')}}</small>--}}
+                    </h2>
                 <hr>
 
                 @if(isset($article['avatar']))

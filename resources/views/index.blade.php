@@ -23,7 +23,7 @@
                     <div class="col-lg-12 article">
                         <h4>
                             <a href="{{route('article-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
-                            <small>{{$article['created_at']->format('M d, Y')}}</small>
+                            {{--<small>{{$article['created_at']->format('M d, Y')}}</small>--}}
                         </h4>
                     </div>
                     <div class="clearfix"></div>
