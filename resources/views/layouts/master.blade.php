@@ -23,7 +23,8 @@
 <!-- /.container -->
 
     @include("partials/footer")
-    
+    @include("partials/ga")
+
     @section('footer')
     @show
 

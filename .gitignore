@@ -1,7 +1,5 @@
 node_modules/
-public/storage/upload/
 public/hot/
-storage/*.key
 vendor/
 .idea/
 Homestead.json
