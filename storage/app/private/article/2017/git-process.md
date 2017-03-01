@@ -3,7 +3,7 @@
 After 3 years using Git for version control, I've found best practices model for myself. It's good for branching, deploy management. 
 
 <center>
-![Git Model](http://local.code.com/storage/article/2017/git-process/git-model.jpeg)
+![Git Model](http://lt-rex.click/storage/article/2017/git-process/git-model.jpeg)
 </center>
 
 <br>
@@ -30,11 +30,11 @@ After finished must merge back to **develop** via merge request
 
 Merge strategy is: Merge commit _--no-ff_
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/pull-request--no-ff.png)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/pull-request--no-ff.png)
 
 Merge strategy:
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/merge-without-ff.jpeg)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/merge-without-ff.jpeg)
 
 <br>
 
@@ -76,7 +76,7 @@ $ git checkout -b hotfix-* origin/master
 
 After finished must merge back to **master** and **develop**
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/hotfix-branches.jpeg)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/hotfix-branches.jpeg)
 
 
 Create a tag version:
@@ -99,7 +99,7 @@ git reset [--hard|–soft] HEAD~2
 Common use cases:
 - **Discard commits** in a **private branch** or throw away uncommited changes
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/reset-commit.png)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/reset-commit.png)
 
 **git reset** File level
 ```
@@ -108,7 +108,7 @@ git reset HEAD~2 foo.php
 Common use cases:
 - This command will fetch the version of foo.php in the 2nd-to-last commit and stage it for the next commit
  
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/reset-file.png)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/reset-file.png)
 
 **git checkout** Commit level
 ``` 
@@ -117,7 +117,7 @@ git checkout HEAD~2
 Common use cases:
 - Switch between branches or inspect old snapshots <br>
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/checkout-commit.png)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/checkout-commit.png)
 
 ```
 git checkout HEAD~2 foo.php
@@ -126,7 +126,7 @@ Common use cases:
 - Discard changes in the working directory
 - Checking out a file is similar to using git reset with a file path, except it updates the working directory instead of the stage
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/checkout-file.png)    
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/checkout-file.png)    
 
 **git revert** Commit level
 ```
@@ -135,7 +135,7 @@ git revert HEAD~2
 Common use cases:
 - Undo commits in a **public branch**
 
-![Merge pull request](http://local.code.com/storage/article/2017/git-process/revert-commit.png)
+![Merge pull request](http://lt-rex.click/storage/article/2017/git-process/revert-commit.png)
 
 <br>
 
