@@ -15,16 +15,19 @@
         <div class="box article-container">
             @foreach($articles as $year => $articlesGroupByYear)
                 <div class="col-lg-12">
-                    <hr>
-                    <h1 class="text-center">{{$year}}</h1>
-                    <hr>
+                    <h2 class="text-center">{{$year}}</h2>
                 </div>
                 @foreach($articlesGroupByYear as $article)
                     <div class="col-lg-12 article">
                         <h4>
                             <a href="{{route('article-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
-                            {{--<small>{{$article['created_at']->format('M d, Y')}}</small>--}}
+                            @if(key_exists('created_at', $article))
+                            <small>{{$article['created_at']->format('M d, Y')}}</small>
+                            @endif
                         </h4>
+                        @if(key_exists('excerpt', $article))
+                        <p>{{$article['excerpt']}}</p>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 @endforeach

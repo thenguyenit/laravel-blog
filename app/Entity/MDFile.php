@@ -15,7 +15,7 @@ class MDFile
     {
         $folderPath = storage_path($this->mdPath);
 
-        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+//        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
             $result = [];
             foreach (\File::directories($folderPath) as $directory) {
 
@@ -24,19 +24,33 @@ class MDFile
                         $pattern = '/(.*)\\' . DIRECTORY_SEPARATOR . '(\d+)\/(.*).md/';
                         preg_match($pattern, $file, $output);
                         if ($output) {
-                            $result[$output[2]][] = [
+                            //Description file
+                            $descriptionFilePath = $output[1] . DIRECTORY_SEPARATOR . $output[2]  . DIRECTORY_SEPARATOR . $output[3] . ".json";
+
+                            $descriptionFileData = [];
+                            if (is_file($descriptionFilePath)) {
+                                $desContent = file_get_contents($descriptionFilePath);
+                                $descriptionFileData = json_decode($desContent, true);
+                                if (key_exists('created_at', $descriptionFileData)) {
+                                    $descriptionFileData['created_at'] =
+                                        Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, $descriptionFileData['created_at']);
+                                }
+                            }
+
+                            $fileContent = [
                                 'title' => self::getTitle($output[3]),
                                 'slug' => $output[3],
                                 'avatar' => self::getAvatar($output[2], $output[3]),
-                                'created_at' =>  Carbon::createFromTimestamp(\File::lastModified($file))
+                                'updated_at' =>  Carbon::createFromTimestamp(\File::lastModified($file))
                             ];
+
+                            $result[$output[2]][] = array_merge($fileContent, $descriptionFileData);
                         }
                     }
                 }
             }
-
             return $result;
-        });
+//        });
 
         return $result;
     }
