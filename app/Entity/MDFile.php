@@ -31,6 +31,12 @@ class MDFile
                             if (is_file($descriptionFilePath)) {
                                 $desContent = file_get_contents($descriptionFilePath);
                                 $descriptionFileData = json_decode($desContent, true);
+
+                                //check status, if draft is continue
+                                if (array_get($descriptionFileData, 'status') === false) {
+                                    continue;
+                                }
+
                                 if (key_exists('created_at', $descriptionFileData)) {
                                     $descriptionFileData['created_at'] =
                                         Carbon::createFromFormat(Carbon::DEFAULT_TO_STRING_FORMAT, $descriptionFileData['created_at']);
