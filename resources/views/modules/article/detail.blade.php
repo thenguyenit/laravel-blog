@@ -32,6 +32,8 @@
 @endsection
 
 @push('script-footer')
+<!--Markdown-->
+<script src="{{asset('components/showdown/dist/showdown.min.js')}}"></script>
 <script type="text/javascript">
 
     $(document).ready(function(){
