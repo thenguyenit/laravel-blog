@@ -109,7 +109,7 @@ class MDFile
      */
     protected function getAvatar($year, $slug)
     {
-        $filePath = storage_path($this->mdPath . "/{$year}/{$slug}.jpg");
+        $filePath = storage_path($this->imagePath . "/{$year}/{$slug}.jpg");
         if (is_file($filePath)) {
             return asset("storage/article/{$year}/{$slug}.jpg");
         }
