@@ -15,7 +15,7 @@ Nếu tôi nhận thấy cuộc sống của tôi không tiến triển tốt, l
 ####<center>Vậy việc gì phải làm vào mỗi tối nhỉ?</center>
 <hr>
 
-Phải nghỉ ra làm gì đó từ 7h tới 12h.
+Phải nghĩ ra làm gì đó từ 7h tới 12h.
 
 ...nhưng quan trọng là phải cân bằng giữa cuộc sống và công việc nữa.
 
