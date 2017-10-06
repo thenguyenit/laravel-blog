@@ -1,12 +1,12 @@
-# Why?
+## Why?
 The reasons which I choose Ruby for the automation testing:
 * Ruby is better language for programming
 * Easier to approach the automation test for the new guys
 
-# What?
+## What?
 Using Ruby programming language and the relate extensions for automation testing
 
-# How?
+## How?
 The way these component work together:
 
 Ruby env <==> Bundler <==> RSpec <==> Capybara <==> Selenium <==> Browser
@@ -16,9 +16,7 @@ Ruby env <==> Bundler <==> RSpec <==> Capybara <==> Selenium <==> Browser
 * [Capybara](https://github.com/teamcapybara/capybara) is an acceptance test framework for web applications.
 * Selenium is a suite of tools to automate web browsers across many platforms.
 
-# Cheat sheet
-
-## Capybara
+## Cheat sheet
 
 **Navigating**
 ```ruby
