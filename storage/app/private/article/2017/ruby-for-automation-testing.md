@@ -16,7 +16,7 @@ Ruby env <==> Bundler <==> RSpec <==> Capybara <==> Selenium <==> Browser
 * [Capybara](https://github.com/teamcapybara/capybara) is an acceptance test framework for web applications.
 * Selenium is a suite of tools to automate web browsers across many platforms.
 
-### Install
+## Install
 * [Homebrew](https://brew.sh/)
 * Xcode
 * [Ruby Version Manager (RVM)](https://rvm.io/)
@@ -37,7 +37,9 @@ rvm use 2.4.0 --default
 
 * Install gem [bundler](http://bundler.io/) (provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed)
 
-```gem install bundler```
+```
+gem install bundler
+```
 
 * Setup browser drivers
 ```
@@ -52,7 +54,7 @@ brew install chromedriver
 #Then open menu develop and Check on “Allow Remote Automation”
 ```
 
-### Cheat sheet
+## Cheat sheet
 
 **Navigating**
 ```ruby
