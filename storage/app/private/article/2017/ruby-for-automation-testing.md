@@ -16,7 +16,31 @@ Ruby env <==> Bundler <==> RSpec <==> Capybara <==> Selenium <==> Browser
 * [Capybara](https://github.com/teamcapybara/capybara) is an acceptance test framework for web applications.
 * Selenium is a suite of tools to automate web browsers across many platforms.
 
-## Cheat sheet
+### Install
+* [Homebrew](https://brew.sh/)
+* Xcode
+* [Ruby Version Manager (RVM)](https://rvm.io/)
+
+```
+\curl -L https://get.rvm.io | bash -s stable
+source $HOME/.rvm/scripts/rvm
+#Run rvm requirements to install additional dependencies:   
+rvm requirements
+```
+
+* Ruby
+
+```
+rvm install 2.4.0
+rvm use 2.4.0 --default
+```
+
+* Install gem [bundler](http://bundler.io/) (provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed)
+
+```gem install bundler```
+
+
+### Cheat sheet
 
 **Navigating**
 ```ruby
