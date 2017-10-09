@@ -39,6 +39,18 @@ rvm use 2.4.0 --default
 
 ```gem install bundler```
 
+* Setup browser drivers
+```
+#For Gecko driver :(using for Firefox browser)
+brew install geckodriver
+
+#For Chrome driver:
+brew install chromedriver
+#In addition, we must Enable Automation mode on Safari browser
+#Open to Safari > Preferences
+#Check on "Show develop menu in menu bar"
+#Then open menu develop and Check on “Allow Remote Automation”
+```
 
 ### Cheat sheet
 
