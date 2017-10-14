@@ -1,5 +1,6 @@
 #### Step 1: Create a file Setup/InstallData to create product attribute
-```php
+
+```
 <?php
 
 namespace [VendorName]\[ModuleName]\Setup;
@@ -56,9 +57,11 @@ class InstallData implements InstallDataInterface
 }
 ```
 
-#### Step 2: Get attribute value
+#### Step 2: Get custom attribute value
 
-```php
+##### Get custom attribute value in the catalog + pdp page
+
+```
 <?php
 
 namespace [VendorName]\[ModuleName]\Helper;
@@ -80,4 +83,20 @@ class Image extends \Magento\Catalog\Helper\Image
         return $this->_product->getData(attribute_code);
     }
     ...
+```
+
+##### Get custom attribute value in cart + checkout page
+
+In Magento 2, the file [VendorName]\[ModuleName]\etc\catalog_attributes.xml is using to define list of attributes will be loaded automatically.
+
+The group quote_item represents the attributes that are going to be copied from the product to the quote item.
+Create [VendorName]\[ModuleName]\etc\catalog_attributes.xml
+```
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/catalog_attributes.xsd">
+    <group name="quote_item">
+        <attribute name="attribute_code"/>
+    </group>
+</config>
 ```
