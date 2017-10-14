@@ -1,5 +1,6 @@
 #### Step 1: Create a file Setup/InstallData to create product attribute
 
+
 ```
 <?php
 
@@ -61,6 +62,7 @@ class InstallData implements InstallDataInterface
 
 ##### Get custom attribute value in the catalog + pdp page
 
+
 ```
 <?php
 
@@ -89,8 +91,11 @@ class Image extends \Magento\Catalog\Helper\Image
 
 In Magento 2, the file [VendorName]\[ModuleName]\etc\catalog_attributes.xml is using to define list of attributes will be loaded automatically.
 
+
 The group quote_item represents the attributes that are going to be copied from the product to the quote item.
 Create [VendorName]\[ModuleName]\etc\catalog_attributes.xml
+
+
 ```
 <?xml version="1.0"?>
 
@@ -100,3 +105,4 @@ Create [VendorName]\[ModuleName]\etc\catalog_attributes.xml
     </group>
 </config>
 ```
+
