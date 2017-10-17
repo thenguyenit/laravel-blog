@@ -89,14 +89,15 @@ class Image extends \Magento\Catalog\Helper\Image
 
 ##### Get custom attribute value in cart + checkout page
 
-In Magento 2, the file [VendorName]\[ModuleName]\etc\catalog_attributes.xml is using to define list of attributes will be loaded automatically.
+In Magento 2, the file [VendorName]\[ModuleName]\etc\\**catalog_attributes.xml** is using to define list of attributes will be loaded automatically.
 
 
 The group quote_item represents the attributes that are going to be copied from the product to the quote item.
-Create [VendorName]\[ModuleName]\etc\catalog_attributes.xml
+
+Create [VendorName]\[ModuleName]\etc\\**catalog_attributes.xml**
 
 
-```
+```xml
 <?xml version="1.0"?>
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/catalog_attributes.xsd">

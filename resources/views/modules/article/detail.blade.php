@@ -23,7 +23,7 @@
                 <hr class="visible-xs">
                 <div class="clearfix"></div>
                 <br>
-                <div id="blog-content" class="markdown">{!! $article['content'] !!}</div>
+                <div id="blog-content" class="markdown-body">{!! $article['content'] !!}</div>
 
             </div>
         </div>
@@ -32,14 +32,4 @@
 @endsection
 
 @push('script-footer')
-<!--Markdown-->
-<script src="{{asset('components/showdown/dist/showdown.min.js')}}"></script>
-<script type="text/javascript">
-
-    $(document).ready(function(){
-        var content = $('#blog-content').html();
-        var converter = new showdown.Converter();
-        $('#blog-content').html(converter.makeHtml( content ) );
-    });
-</script>
 @endpush

@@ -74,7 +74,10 @@ class MDFile
 
         $result = \Cache::remember($filePath, 60, function() use ($filePath, $slug, $year) {
             if (is_file($filePath)) {
-                $content = \File::get($filePath);
+                $markdownContent = \File::get($filePath);
+
+                $parseDown = new \Parsedown();
+                $content = $parseDown->text($markdownContent);
 
                 return [
                     'title'      => self::getTitle($slug),
