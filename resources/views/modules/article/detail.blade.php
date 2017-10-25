@@ -17,7 +17,7 @@
                 <hr>
 
                 @if(isset($article['avatar']))
-                <center><img class="img-responsive img-border img-left" src="{{$article['avatar']}}" alt="{{$article['title']}}"></center>
+                <center><img class="img-responsive img-border" src="{{$article['avatar']}}" alt="{{$article['title']}}"></center>
                 @endif
 
                 <hr class="visible-xs">
