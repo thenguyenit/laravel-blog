@@ -22,6 +22,9 @@
                     <a href="{{route('about-me')}}">About</a>
                 </li>
                 <li>
+                    <a href="{{route('shopping')}}">Go to shopping</a>
+                </li>
+                <li>
                     <a href="/enjoy">T-Rex</a>
                 </li>
             </ul>

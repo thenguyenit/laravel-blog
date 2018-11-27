@@ -18,3 +18,5 @@ Route::get('/notes', 'IndexController@notes')->name('notes');
 Route::get('/note/{year}/{slug}', 'IndexController@noteDetail')->name('note-detail');
 
 Route::get('/about-me', 'IndexController@about')->name('about-me');
+
+Route::get('/go-shopping', 'ShoppingController@index')->name('shopping');
