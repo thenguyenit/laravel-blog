@@ -3,9 +3,17 @@
 namespace App\Entity;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 
 class MDFile
 {
+    public $mdPath;
+
+    public $imagePath;
+
+    public $imageAsset;
+
     /**
      * Paginate all article by year
      *
@@ -15,13 +23,14 @@ class MDFile
     {
         $folderPath = storage_path($this->mdPath);
 
-        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+
+//        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
             $result = [];
             foreach (\File::directories($folderPath) as $directory) {
 
                 if (is_dir($directory)) {
                     foreach (\File::files($directory) as $file) {
-                        $pattern = '/(.*)\\' . DIRECTORY_SEPARATOR . '(\d+)\/(.*).md/';
+                        $pattern = '/(.*)\\' . DIRECTORY_SEPARATOR . '(.*)\/(.*).md/';
                         preg_match($pattern, $file, $output);
                         if ($output) {
                             //Description file
@@ -46,7 +55,7 @@ class MDFile
                             $fileContent = [
                                 'title' => self::getTitle($output[3]),
                                 'slug' => $output[3],
-                                'avatar' => self::getAvatar($output[2], $output[3]),
+                                'avatar' => array_get($descriptionFileData, 'image', self::getAvatar($output[2], $output[3])),
                                 'updated_at' =>  Carbon::createFromTimestamp(\File::lastModified($file))
                             ];
 
@@ -55,8 +64,11 @@ class MDFile
                     }
                 }
             }
-            return $result;
-        });
+            if (!empty($result)) {
+                return $result;
+            }
+
+//        });
 
         return $result;
     }
@@ -114,7 +126,7 @@ class MDFile
     {
         $filePath = storage_path($this->imagePath . "/{$year}/{$slug}.jpg");
         if (is_file($filePath)) {
-            return asset("storage/article/{$year}/{$slug}.jpg");
+            return asset($this->imageAsset . "/{$year}/{$slug}.jpg");
         }
     }
 }
