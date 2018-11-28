@@ -6,7 +6,7 @@
 @section('meta')
     @parent
     <meta name="description" content="" />
-    <meta name="keywords" content="google home mini, google home, google home viet nam, google chrome cast, chrome cast, shine 2, misfit, misfit shine 2, shine2" />
+    <meta name="keywords" content="google home mini, google home, google home viet nam, google chrome cast, chrome cast, shine 2, misfit, misfit shine 2, shine2, Misfit ray" />
     <meta name="robots" content="index,follow,noodp,noydir" />
 @endsection
 
@@ -14,7 +14,7 @@
     <div class="row">
         @foreach($products as $brand => $productGroupByBrand)
             @foreach($productGroupByBrand as $product)
-            <div class="card col-sm-3 text-center float-left border-0 p-4">
+            <div class="card col-sm-4 text-center float-left border-0 p-4">
                 <a href="{{route('article-detail', [$brand, $product['slug']])}}">
                     <img class="card-img-top img-thumbnail border-0" style="height: 300px; width: auto;"
                          src="{{$product['avatar']}}" alt="{{$product['title']}}">
@@ -28,22 +28,20 @@
                                 <span class="badge badge-info">Free ship</span>
                             @endif
                         </h6>
-                        <div class="yotpo bottomLine"
-                             data-appkey="hN8N04UNyaODL34zSuQsLH7nNstHnVukE7qiEoXj"
-                             data-domain="{{trans('app.url')}}"
-                             data-product-id="{{$product['slug']}}"
-                             data-product-models="{{$product['title']}}"
-                             data-name="{{$product['title']}}"
-                             data-url="{{route('article-detail', [$brand, $product['slug']])}}"
-                             data-image-url="{{$product['avatar']}}"
-                             data-description="{{$product['title']}}"
-                             {{--data-bread-crumbs="{{$productGroupByBrand}}"--}}
-                        >
-                        </div>
                     @endif
                 </div>
             </div>
             @endforeach
         @endforeach
     </div>
+
+    <!-- Facebook comment -->
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+          <div class="row fb-comments" data-href="{{route('shopping')}}" data-numposts="50" data-width="100%"></div>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+
 @endsection
