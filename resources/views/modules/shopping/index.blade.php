@@ -11,11 +11,19 @@
 @endsection
 
 @section('content')
+    <div class="row intro">
+        <div class="mx-auto intro-content p-3">
+            <h1>T-Rex go shopping</h1>
+                <p>T-Rex đã mua và mang về Việt Nam cho các bạn vài thứ <br/> mà giá của nó còn rẻ hơn khi các bạn trực tiếp mua tại cửa hàng nữa.</p>
+                <a href="#" class="float-right question">Tại sao hay vậy?</a>
+        </div>
+    </div>
+
     <div class="row">
         @foreach($products as $brand => $productGroupByBrand)
             @foreach($productGroupByBrand as $product)
             <div class="card col-sm-4 text-center float-left border-0 p-4">
-                <a href="{{route('article-detail', [$brand, $product['slug']])}}">
+                <a href="{{route('product-detail', [$brand, $product['slug']])}}">
                     <img class="card-img-top img-thumbnail border-0" style="height: 300px; width: auto;"
                          src="{{$product['avatar']}}" alt="{{$product['title']}}">
                 </a>
@@ -35,13 +43,6 @@
         @endforeach
     </div>
 
-    <!-- Facebook comment -->
-    <div class="row">
-        <div class="col-sm"></div>
-        <div class="col-sm">
-          <div class="row fb-comments" data-href="{{route('shopping')}}" data-numposts="50" data-width="100%"></div>
-        </div>
-        <div class="col-sm"></div>
-    </div>
+    @include("partials/fb-comment")
 
 @endsection

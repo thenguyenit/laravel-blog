@@ -14,6 +14,7 @@ class ShoppingController extends Controller
     public function __construct()
     {
         $this->productRepo = new Product();
+        $this->productRepo = new Product();
     }
     /**
      * Paginate articles
@@ -23,7 +24,6 @@ class ShoppingController extends Controller
     public function index()
     {
         $products = $this->productRepo->paginate();
-//        var_dump($products);die;
         return view('modules.shopping.index', compact('products'));
     }
 
@@ -41,15 +41,5 @@ class ShoppingController extends Controller
         }
 
         abort(404);
-    }
-
-    /**
-     * Go to about me page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function about()
-    {
-        return $this->articleDetail(2016, 'about-me');
     }
 }
