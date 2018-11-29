@@ -82,23 +82,29 @@ class MDFile
      */
     public function detail($year, $slug)
     {
-        $filePath = storage_path($this->mdPath . "/{$year}/{$slug}.md");
+        $mdFilePath = storage_path($this->mdPath . "/{$year}/{$slug}.md");
+        $jsonFilePath = storage_path($this->mdPath . "/{$year}/{$slug}.json");
 
-        $result = \Cache::remember($filePath, 60, function() use ($filePath, $slug, $year) {
-            if (is_file($filePath)) {
-                $markdownContent = \File::get($filePath);
+         $result = \Cache::remember($mdFilePath, 60, function() use ($mdFilePath, $jsonFilePath, $slug, $year) {
 
+            if (is_file($mdFilePath) && is_file($jsonFilePath)) {
+                $markdownContent = \File::get($mdFilePath);
                 $parseDown = new \Parsedown();
                 $content = $parseDown->text($markdownContent);
 
-                return [
+                $jsonContent = file_get_contents($jsonFilePath);
+                $jsonContent = json_decode($jsonContent, true);
+
+                $mdContent = [
                     'title'      => self::getTitle($slug),
                     'avatar'     => self::getAvatar($year, $slug),
                     'content'    => $content,
-                    'created_at' => Carbon::createFromTimestamp(\File::lastModified($filePath))
+                    'created_at' => Carbon::createFromTimestamp(\File::lastModified($mdFilePath))
                 ];
+
+                return array_merge($mdContent, $jsonContent);
             }
-        });
+         });
 
         return $result;
     }

@@ -20,3 +20,4 @@ Route::get('/note/{year}/{slug}', 'IndexController@noteDetail')->name('note-deta
 Route::get('/about-me', 'IndexController@about')->name('about-me');
 
 Route::get('/go-shopping', 'ShoppingController@index')->name('shopping');
+Route::get('/go-shopping/{category}/{slug}', 'ShoppingController@productDetail')->name('product-detail');

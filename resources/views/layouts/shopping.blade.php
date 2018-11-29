@@ -37,7 +37,7 @@
             <!-- Navbar content -->
         </nav>
 
-        <div class="container-fluid">
+        <div class="container-fluid mt-md-5">
 
             @yield('content')
 
@@ -47,13 +47,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <p>Copyright &copy; {{config('app.name')}} {{date('Y')}}</p>
+                        <p>Thank you!</p>
                     </div>
                 </div>
             </div>
         </footer>
-
-        <a href="#" class="scrollToTop"></a>
 
         @include("partials/ga")
 
