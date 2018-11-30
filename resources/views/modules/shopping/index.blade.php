@@ -1,11 +1,8 @@
 @extends('layouts.shopping')
 
-@section('title')
-    <title>T-Rex go shopping</title>
-@endsection
-
 @section('meta')
     @parent
+    <title>T-Rex go shopping</title>
     <meta name="description" content="T-Rex đã mua và mang về Việt Nam cho các bạn vài thứ, và đặt biệt là giá của nó sẻ rẻ hơn khi các bạn mua trực tiếp tại website" />
     <meta name="keywords" content="google home mini, google home, google home viet nam, google chrome cast, chrome cast, shine 2, misfit, misfit shine 2, shine2, Misfit ray" />
     <meta name="robots" content="index,follow,noodp,noydir" />
