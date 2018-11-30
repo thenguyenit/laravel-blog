@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Entity\Article;
-use App\Entity\Note;
 use App\Entity\Product;
 
 class ShoppingController extends Controller
 {
     protected $productRepo;
-    protected $noteRepo;
+    protected $articleRepo;
 
     public function __construct()
     {
         $this->productRepo = new Product();
-        $this->productRepo = new Product();
+        $this->articleRepo = new Article();
     }
     /**
      * Paginate articles
@@ -38,6 +37,16 @@ class ShoppingController extends Controller
         $product = $this->productRepo->detail($brand, $slug);
         if ($product) {
             return view('modules.shopping.product-detail', compact('product'));
+        }
+
+        abort(404);
+    }
+
+    public function faq()
+    {
+        $article = $this->articleRepo->detail(2018, 'faq');
+        if ($article) {
+            return view('modules.shopping.faq', compact('article'));
         }
 
         abort(404);
