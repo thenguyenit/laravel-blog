@@ -11,7 +11,7 @@
 @section('content')
     <div class="row intro">
         <div class="mx-auto intro-content p-3">
-            <h1>T-Rex go shopping</h1>
+            <h1 class="pt-5">T-Rex go shopping</h1>
                 <p>T-Rex đã mua và mang về Việt Nam cho các bạn vài thứ, <br/> và đặt biệt là giá của nó sẻ rẻ hơn khi các bạn mua trực tiếp tại website.</p>
                 <a href="{{route('faq')}}" class="float-right question">Tại sao hay vậy?</a>
         </div>
@@ -20,11 +20,13 @@
     <div class="row">
         @foreach($products as $brand => $productGroupByBrand)
             @foreach($productGroupByBrand as $product)
-            <div class="card col-sm-3 text-center float-left border-0 p-4">
-                <a href="{{route('product-detail', [$brand, $product['slug']])}}">
-                    <img class="card-img-top img-thumbnail border-0" style="height: 300px; width: auto;"
-                         src="{{$product['avatar']}}" alt="{{$product['title']}}">
-                </a>
+            <div class="card col-sm-3 col-md-4 col-lg-3 col-xl-3 text-center float-left border-0 p-4">
+                <div class="product-image">
+                    <a href="{{route('product-detail', [$brand, $product['slug']])}}">
+                        <img class="card-img-top img-thumbnail border-0"
+                             src="{{$product['avatar']}}" alt="{{$product['title']}}">
+                    </a>
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">{{$product['title']}}</h5>
                     @if(key_exists('price', $product))

@@ -1,11 +1,3 @@
-@media screen and (min-width:768px) {
-
-}
-
-@media screen and (min-width:1200px) {
-
-}
-
 nav {
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
 }
@@ -22,10 +14,43 @@ nav {
     color: #6c757d;
 }
 
-@media (min-width: 1120px) and (min-width: 600px) {
+.card-title {
+    font-weight: 400
+}
+
+footer {
+    background: transparent url(../img/page-bottom-bg.png);
+    background-position: right 100%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+/*Small devices (landscape phones, 400px and up)*/
+@media (min-width: 320px) {
+    .intro {
+        margin-top: 40px;
+        padding: 50px 0px 70px;
+    }
+
+    footer {
+        padding: 76px 0;
+    }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .intro-content {
+        margin: 0 40px;
+    }
+
+
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
     .intro {
         margin-top: -10px;
-        padding: 160px 0px 140px;
+        padding: 160px 0px 40px;
     }
 
     .intro-content {
@@ -34,41 +59,29 @@ nav {
         max-width: 1120px;
     }
 
+    .product-image {
+        height: 250px;
+    }
 
+    footer {
+        padding: 206px 0;
+    }
 }
 
-@media (min-width: 600px) {
-    .intro-content {
-        margin: 0 40px;
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    .product-image {
+        height: 300px;
     }
 
     footer {
         padding: 300px 0;
     }
-}
 
-@media (max-width: 400px) {
     .intro {
-        margin-top: 40px;
-        padding: 50px 0px 70px;
-    }
-
-    footer {
-        padding: 65px 0;
+        padding: 160px 0px 85px;
     }
 }
 
-.card-title {
-    font-weight: 400
-}
-
-footer {
-    background: transparent url(../img/page-bottom-bg.png);
-    background-position: right 101%;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-}
-
-.scrollToTop:hover{
-    text-decoration:none;
-}
+/*// Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {  }
