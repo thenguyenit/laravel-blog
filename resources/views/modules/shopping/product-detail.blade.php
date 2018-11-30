@@ -1,7 +1,7 @@
 @extends('layouts.shopping')
 
 @section('meta')
-    <title>{{$product['title']}} - {{trans('app.name')}}</title>
+    <title>{{trans('app.name')}} mua {{$product['title']}}</title>
     <meta name="description" content="{{$product['title']}}" />
     <meta name="keywords" content="{{$product['title']}}, {{array_get($product, 'keywords')}}" />
     <meta property="og:title" content="{{$product['title']}}"/>
@@ -15,7 +15,7 @@
 
     <div class="row intro">
         <div class="mx-auto intro-content p-3">
-            <h1>{{$product['title']}}</h1>
+            <h1 class="pt-5">{{$product['title']}}</h1>
             @if(key_exists('price', $product))
                 <h6 class="card-subtitle mb-2 text-muted">
                     {{$product['price']}}
@@ -56,7 +56,7 @@
         <div class="clearfix"></div>
     </div>
 
-    <div class="">
+    <div class="container">
         <div id="blog-content" class="markdown-body">{!! $product['content'] !!}</div>
     </div>
 

@@ -23,11 +23,9 @@ class MDFile
     {
         $folderPath = storage_path($this->mdPath);
 
-
-//        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
+        $result = \Cache::remember($folderPath, 60, function() use ($folderPath) {
             $result = [];
             foreach (\File::directories($folderPath) as $directory) {
-
                 if (is_dir($directory)) {
                     foreach (\File::files($directory) as $file) {
                         $pattern = '/(.*)\\' . DIRECTORY_SEPARATOR . '(.*)\/(.*).md/';
@@ -67,8 +65,7 @@ class MDFile
             if (!empty($result)) {
                 return $result;
             }
-
-//        });
+        });
 
         return $result;
     }

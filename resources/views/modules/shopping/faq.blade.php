@@ -10,7 +10,7 @@
 
     <div class="row intro">
         <div class="mx-auto intro-content p-3">
-            <h1>FAQ</h1>
+            <h1 class="pt-1">FAQ</h1>
             <p>{{$article['excerpt']}}</p>
             <p></p>
         </div>
