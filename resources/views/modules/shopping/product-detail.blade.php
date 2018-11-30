@@ -37,7 +37,18 @@
             <div class="container text-center">
                 @foreach($product['gallery'] as $image)
                     <a class="" href="{{asset('storage/product/' . $image)}}" data-lightbox="example-set">
-                        <img class="shadow p-3 mb-5 bg-white rounded border border-warning example-image rounded img-fluid img-thumbnail col-sm-2 p-4" src="{{asset('storage/product/' . $image)}}" alt="{{$product['title']}}"/>
+                        <img class="shadow p-3 mb-5 bg-white rounded border border-warning example-image img-fluid img-thumbnail col-sm-2"
+                             src="{{asset('storage/product/' . $image)}}" alt="{{$product['title']}}"/>
+                    </a>
+                @endforeach
+            </div>
+        @endif
+        @if(isset($product['video']) && is_array($product['video']))
+            <div class="container text-center">
+                @foreach($product['video'] as $video)
+                    <a class="" href="{{$video}}" target="_blank">
+                        <img class="shadow p-3 mb-5 bg-white rounded border border-warning example-image img-fluid img-thumbnail col-sm-2"
+                             src="{{asset('storage/product/other/video.webp')}}" alt="Video"/>
                     </a>
                 @endforeach
             </div>
