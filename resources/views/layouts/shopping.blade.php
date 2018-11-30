@@ -7,12 +7,6 @@
         <link href="{{asset('img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon"/>
 
         @section('meta')
-            <title>{{trans('app.slogan')}} - {{trans('app.name')}}</title>
-            <meta name="description" content="{{trans('app.meta-description')}}">
-            <meta name="keywords" content="{{trans('app.meta-keywords')}}">
-
-            <meta property="og:title" content="{{trans('app.name')}}"/>
-            <meta property="og:description" content="{{trans('app.meta-description')}}"/>
         @show
 
         <meta name="author" content="{{trans('app.meta-author')}}">
@@ -27,15 +21,12 @@
         @section('head')
         @show
 
+        @stack('head')
+
     </head>
     <body>
 
         @include("partials/shopping/nav")
-
-
-        <nav class="navbar navbar-light">
-            <!-- Navbar content -->
-        </nav>
 
         <div class="container-fluid mt-md-5">
 
@@ -47,7 +38,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <p>Thank you!</p>
+                        <h3>Thank you!</h3>
                     </div>
                 </div>
             </div>
@@ -65,5 +56,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
         @include("partials/shopping/messenger")
+
+        @stack('script-footer')
     </body>
 </html>

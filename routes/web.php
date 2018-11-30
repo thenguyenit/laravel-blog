@@ -21,3 +21,4 @@ Route::get('/about-me', 'IndexController@about')->name('about-me');
 
 Route::get('/go-shopping', 'ShoppingController@index')->name('shopping');
 Route::get('/go-shopping/{category}/{slug}', 'ShoppingController@productDetail')->name('product-detail');
+Route::get('/faq', 'ShoppingController@faq')->name('faq');

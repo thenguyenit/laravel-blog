@@ -87,7 +87,7 @@ class MDFile
 
          $result = \Cache::remember($mdFilePath, 60, function() use ($mdFilePath, $jsonFilePath, $slug, $year) {
 
-            if (is_file($mdFilePath) && is_file($jsonFilePath)) {
+             if (is_file($mdFilePath) && is_file($jsonFilePath)) {
                 $markdownContent = \File::get($mdFilePath);
                 $parseDown = new \Parsedown();
                 $content = $parseDown->text($markdownContent);
@@ -103,7 +103,7 @@ class MDFile
                 ];
 
                 return array_merge($mdContent, $jsonContent);
-            }
+             }
          });
 
         return $result;

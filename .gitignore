@@ -9,3 +9,5 @@ Homestead.yaml
 public/components/
 
 composer.phar
+
+/public/page-cache

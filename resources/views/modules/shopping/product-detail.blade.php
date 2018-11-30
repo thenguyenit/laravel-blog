@@ -3,11 +3,12 @@
 @section('meta')
     <title>{{$product['title']}} - {{trans('app.name')}}</title>
     <meta name="description" content="{{$product['title']}}" />
+    <meta name="keywords" content="{{$product['title']}}, {{array_get($product, 'keywords')}}" />
     <meta property="og:title" content="{{$product['title']}}"/>
 @endsection
 
 @push('head')
-    <link async href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet">
+    <link async href="{{asset('components/lightbox2/dist/css/lightbox.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -22,46 +23,30 @@
                         <span class="badge badge-info">Free ship</span>
                     @endif
                 </h6>
+                @if(key_exists('resource-title', $product) && key_exists('resource-link', $product))
+                    <small>
+                        Nguồn: <a class="text-warning" href="{{$product['resource-link']}}" target="_blank">{{$product['resource-title']}}</a>
+                    </small>
+                @endif
             @endif
-            <p></p>
         </div>
     </div>
 
     <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-
-                @if(isset($product['gallery']))
-                    <div class="container gallery-container">
-  
-                        <h1 class="text-center">Bootstrap 3 Gallery</h1>
-                      
-                        <p class="page-description text-center">Grid Layout With Zoom Effect</p>
-                          
-                        <div class="tz-gallery">
-                      
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <a class="lightbox" href="{{asset('storage/product/chromecast-3-chalk.jpg')}}">
-                                        <img src="{{asset('storage/product/chromecast-3-chalk.jpg')}}" alt="Park" class="card-img-top">
-                                        </a>
-                                    </div>
-                                </div>
-                                 
-                        
-                            </div>
-                      
-                        </div>
-                      
-                    </div>
-                @endif
-                <div class="clearfix"></div>
-                <br>
-                <div id="blog-content" class="markdown-body">{!! $product['content'] !!}</div>
-
+        @if(isset($product['gallery']) && is_array($product['gallery']))
+            <div class="container text-center">
+                @foreach($product['gallery'] as $image)
+                    <a class="" href="{{asset('storage/product/' . $image)}}" data-lightbox="example-set">
+                        <img class="shadow p-3 mb-5 bg-white rounded border border-warning example-image rounded img-fluid img-thumbnail col-sm-2 p-4" src="{{asset('storage/product/' . $image)}}" alt="{{$product['title']}}"/>
+                    </a>
+                @endforeach
             </div>
-        </div>
+        @endif
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="">
+        <div id="blog-content" class="markdown-body">{!! $product['content'] !!}</div>
     </div>
 
     @include("partials/fb-comment")
@@ -69,8 +54,6 @@
 @endsection
 
 @push('script-footer')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <script>
-        baguetteBox.run('.tz-gallery');
-    </script>
+    <script src="{{asset('components/lightbox2/dist/js/lightbox-plus-jquery.min.js')}}"></script>
+
 @endpush
