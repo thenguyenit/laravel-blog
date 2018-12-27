@@ -1,35 +1,24 @@
 <!-- Navigation -->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="/">{{trans('app.name')}}</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="@if($_SERVER['REQUEST_URI'] == '/') active @endif">
-                    <a href="/">Home</a>
-                </li>
-                <li class="@if($_SERVER['REQUEST_URI'] == '/about-me') active @endif">
-                    <a href="{{route('about-me')}}">About</a>
-                </li>
-                <li>
-                    <a href="{{route('shopping')}}">Go to shopping</a>
-                </li>
-                <li>
-                    <a href="/enjoy">T-Rex</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">{{trans('app.name')}}</a>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="mr-auto navbar-nav">
+            <li class="nav-item @if($_SERVER['REQUEST_URI'] == '/about-me') active @endif">
+                <a class="nav-link" href="{{route('about-me')}}">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('shopping')}}">Go to shopping</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/enjoy">Play T-Rex</a>
+            </li>
+        </ul>
     </div>
-    <!-- /.container -->
+    <!-- /.navbar-collapse -->
 </nav>
