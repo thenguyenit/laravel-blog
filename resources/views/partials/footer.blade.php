@@ -1,4 +1,4 @@
-<footer>
+<footer class="mt-5 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -7,8 +7,6 @@
         </div>
     </div>
 </footer>
-
-<a href="#" class="scrollToTop"></a>
 
 <!-- jQuery -->
 <script src="{{asset('components/jquery/dist/jquery.min.js')}}"></script>

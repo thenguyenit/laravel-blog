@@ -20,13 +20,13 @@
                 @foreach($articlesGroupByYear as $article)
                     <div class="col-lg-12 article">
                         <h4>
-                            <a href="{{route('article-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
+                            <a class="font-weight-normal text-dark" href="{{route('article-detail', [$year, $article['slug']])}}">{{$article['title']}}</a>
                             @if(key_exists('created_at', $article))
-                            <small>{{$article['created_at']->format('M d, Y')}}</small>
+                            <small class="font-italic text-black-50">{{$article['created_at']->format('M d')}}</small>
                             @endif
                         </h4>
                         @if(key_exists('excerpt', $article))
-                        <p>{{$article['excerpt']}}</p>
+                        <p class="font-weight-light">{{$article['excerpt']}}</p>
                         @endif
                     </div>
                     <div class="clearfix"></div>
