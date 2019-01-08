@@ -77,6 +77,6 @@ class IndexController extends Controller
      */
     public function about()
     {
-        return $this->articleDetail(2016, 'about-me');
+        return $this->articleDetail(2017, 'about-me');
     }
 }
